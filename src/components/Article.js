@@ -8,41 +8,55 @@ import { dateFormatter } from "@/lib/dateFormatter";
 
 import { Heading } from "./Heading";
 
-export function Article({ article }) {
+export function Article({ publicity }) {
   const featuredImage =
-    (prismic.isFilled.image(article.data.featuredImage) &&
-      article.data.featuredImage) ||
-    findFirstImage(article.data.slices);
-  const date = prismic.asDate(
-    article.data.publishDate || article.first_publication_date,
-  );
-  const excerpt = getExcerpt(article.data.slices);
+    (prismic.isFilled.image(publicity.data.featuredImage) &&
+    publicity.data.featuredImage) ||
+    findFirstImage(publicity.data.slices);
+  const excerpt = getExcerpt(publicity.data.slices);
+console.log("publicity", publicity);
 
   return (
-    <li className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 md:gap-8">
-      <PrismicNextLink document={article} tabIndex="-1">
-        <div className="aspect-h-3 aspect-w-4 relative bg-gray-100">
-          {prismic.isFilled.image(featuredImage) && (
-            <PrismicNextImage
-              field={featuredImage}
-              fill={true}
-              className="object-cover"
-            />
-          )}
-        </div>
-      </PrismicNextLink>
-      <div className="grid grid-cols-1 gap-3 md:col-span-2">
-        <Heading as="h2">
-          <PrismicNextLink document={article}>
-            <PrismicText field={article.data.title} />
-          </PrismicNextLink>
-        </Heading>
+    <div className="flex flex-col md:flex-row">
+      <div className="h-full w-full md:w-auto">
+        <PrismicNextLink>
+          <div className="aspect-h-3 aspect-w-4 h-[500px]   w-[500px] bg-gray-100  md:max-w-md">
+            {prismic.isFilled.image(featuredImage) && (
+              <PrismicNextImage
+                field={featuredImage}
+                fill={true}
+                className="object-cover"
+              />
+            )}
+          </div>
+        </PrismicNextLink>
+      </div>
+  
+      <div className="ml-0 md:ml-6 flex flex-col mt-4 md:mt-0 flex-1   pt-20">
+        <h2 style={{ 
+          fontWeight: 'bold', 
+          color: 'black', 
+          fontSize: 'clamp(1.5em, 3vw, 1.8em)', 
+          lineHeight: '1.2', 
+          margin: '0 0 0.5em 0' 
+        }}>{publicity.data.meta_title}</h2>
         {excerpt && (
-          <p className="font-serif leading-relaxed md:text-lg md:leading-relaxed">
+          <p className="font-serif leading-relaxed text-base md:text-lg md:leading-relaxed mb-0">
             {excerpt}
           </p>
         )}
+        <button  style={{ 
+          backgroundColor: 'red', 
+          color: 'white', 
+          border: 'none', 
+          padding: '8px 16px', 
+          cursor: 'pointer', 
+          marginTop: '1em',
+          width: 'auto'  // 宽度设为自适应内容，使其变短
+        }}>find out more</button>
       </div>
-    </li>
+      
+    </div>
+ 
   );
 }

@@ -24,8 +24,14 @@ export default async function Index() {
       { field: "document.first_publication_date", direction: "desc" },
     ],
   });
+
+  const publicitys = await client.getAllByType("publicity", {
+
+  });
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
+// 从publicitys数组中取出唯一的元素
+const [publicity] = publicitys;
 
   return (
     <Layout
@@ -33,6 +39,7 @@ export default async function Index() {
       navigation={navigation}
       settings={settings}
     >
+     
       {/* <Bounded size="widest">
         <ul className="grid grid-cols-1 gap-16">
           {articles.map((article) => (
@@ -42,7 +49,13 @@ export default async function Index() {
       </Bounded> */}
         <Bounded size="widest">
         <ThreeColumnArticles articles={articles} />
+
       </Bounded>
+      <div className="bg-yellow-50 max-w-full px-8 py-16 justify-items-center content-center">
+          {/* {publicitys.map((publicity) => ( */}
+            <Article key={publicity.id} publicity={publicity} />
+          {/* ))} */}
+        </div>
     </Layout>
   );
 }
