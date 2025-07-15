@@ -28,9 +28,6 @@ function LatestArticle({ article }) {
           <PrismicText field={article.data.title} />
         </PrismicNextLink>
       </h1>
-      <p className="font-serif italic tracking-tighter text-slate-500">
-        {dateFormatter.format(date)}
-      </p>
     </li>
   );
 }
@@ -87,7 +84,7 @@ export default async function Page({ params }) {
     >
       <Bounded>
         <Link href="/" className="font-semibold tracking-tight text-slate-400">
-          &larr; Back to articles
+          &larr; Back to homepage
         </Link>
       </Bounded>
       <article>
@@ -95,9 +92,6 @@ export default async function Page({ params }) {
           <h1 className="mb-3 text-3xl font-semibold tracking-tighter text-slate-800 md:text-4xl">
             <PrismicText field={article.data.title} />
           </h1>
-          <p className="font-serif italic tracking-tighter text-slate-500">
-            {dateFormatter.format(date)}
-          </p>
         </Bounded>
         <SliceZone slices={article.data.slices} components={components} />
       </article>

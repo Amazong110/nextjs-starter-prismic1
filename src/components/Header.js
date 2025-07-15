@@ -9,20 +9,11 @@ import { HorizontalDivider } from "./HorizontalDivider";
 
 const Profile = ({ name, description, profilePicture }) => {
   return (
+    
     <div className="px-4">
+    
       <div className="grid max-w-lg grid-cols-1 justify-items-center gap-8">
-        <PrismicNextLink href="/" tabIndex="-1">
-          <div className="relative h-40 w-40 overflow-hidden rounded-full bg-slate-300">
-            {prismic.isFilled.image(profilePicture) && (
-              <PrismicNextImage
-                field={profilePicture}
-                fill={true}
-                sizes="100vw"
-                className="object-cover"
-              />
-            )}
-          </div>
-        </PrismicNextLink>
+ 
         {(prismic.isFilled.richText(name) ||
           prismic.isFilled.richText(description)) && (
           <div className="grid grid-cols-1 gap-2 text-center">
@@ -34,7 +25,7 @@ const Profile = ({ name, description, profilePicture }) => {
               </Heading>
             )}
             {prismic.isFilled.richText(description) && (
-              <p className="font-serif text-2xl italic leading-normal tracking-tight text-slate-500">
+              <p className="font-serif text-2xl inherit leading-normal tracking-tight text-slate-500 max-w-2xl">
                 <PrismicText field={description} />
               </p>
             )}
@@ -58,24 +49,11 @@ export const Header = ({
   settings,
 }) => {
   return (
+    
     <Bounded as="header">
-      <div className="grid grid-cols-1 justify-items-center gap-20">
-        <nav>
-          <ul className="flex flex-wrap justify-center gap-10">
-            <NavItem>
-              <Link href="/">
-                <PrismicText field={navigation.data.homepageLabel} />
-              </Link>
-            </NavItem>
-            {navigation.data?.links.map((item) => (
-              <NavItem key={prismic.asText(item.label)}>
-                <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
-              </NavItem>
-            ))}
-          </ul>
-        </nav>
+    
+      <div className="grid grid-cols-1 justify-items-center gap-20 py-20">
+    
         {withProfile && (
           <Profile
             name={settings.data.name}

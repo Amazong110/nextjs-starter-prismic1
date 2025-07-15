@@ -37,9 +37,6 @@ export function Article({ article }) {
             <PrismicText field={article.data.title} />
           </PrismicNextLink>
         </Heading>
-        <p className="font-serif italic tracking-tighter text-slate-500">
-          {dateFormatter.format(date)}
-        </p>
         {excerpt && (
           <p className="font-serif leading-relaxed md:text-lg md:leading-relaxed">
             {excerpt}

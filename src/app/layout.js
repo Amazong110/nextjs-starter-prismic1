@@ -29,26 +29,23 @@ export default function RootLayout({ children }) {
           {process.env.NODE_ENV === "development" && (
             <div
               style={{
-                background: "#5163ba",
+                background: "#04D99D",
                 padding: "1rem",
                 textAlign: "center",
                 fontSize: "0.85rem",
                 color: "#fff",
               }}
             >
-              <p>
-                <strong>👋 Welcome to your new website!</strong> To customize
-                the code and content of this site,{" "}
-                <a
-                  href="https://github.com/prismicio-community/nextjs-starter-prismic-blog/tree/master/docs"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ textDecoration: "underline" }}
-                >
-                  see the documentation
-                </a>
-                . Remove this bar in <code>app/layout.js</code>.
-              </p>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ color: 'black' }}>Call Us 0123456789</span>
+            <button style={{ 
+              backgroundColor: 'red', 
+              color: 'white', 
+              border: 'none', 
+              padding: '0.5rem 1rem', 
+              cursor: 'pointer' 
+            }}>Book A Free Assessment</button>
+          </div>
             </div>
           )}
           {children}

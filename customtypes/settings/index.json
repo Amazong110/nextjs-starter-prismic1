@@ -28,7 +28,10 @@
         "type": "Image",
         "config": {
           "label": "Profile Picture",
-          "constraint": { "width": 2000, "height": 2000 },
+          "constraint": {
+            "width": 2000,
+            "height": 2000
+          },
           "thumbnails": []
         }
       },
@@ -48,6 +51,17 @@
           "placeholder": "Small text below sign up form",
           "allowTargetBlank": true,
           "multi": "paragraph,em,strong,hyperlink"
+        }
+      },
+      "english_image": {
+        "type": "Image",
+        "config": {
+          "label": "english imgge",
+          "constraint": {
+            "width": 500,
+            "height": 500
+          },
+          "thumbnails": []
         }
       }
     }
