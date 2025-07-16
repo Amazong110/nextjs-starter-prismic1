@@ -55,7 +55,7 @@ const ContactForm = () => {
           label="Email Address"
           name="email"
           type="email"
-          placeholder="jane.doe@example.com"
+          placeholder="youreamil@example.com"
         />
         <TextareaField
           label="Message"

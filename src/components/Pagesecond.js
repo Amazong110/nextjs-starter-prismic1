@@ -8,36 +8,24 @@ import { dateFormatter } from "@/lib/dateFormatter";
 
 import { Heading } from "./Heading";
 
-export function Article({ publicity }) {
+export function Pagesecond({ secondPageMain }) {
   const featuredImage =
-    (prismic.isFilled.image(publicity.data.featuredImage) &&
-    publicity.data.featuredImage) ||
-    findFirstImage(publicity.data.slices);
-  const excerpt = getExcerpt(publicity.data.slices);
+    (prismic.isFilled.image(secondPageMain.data.featuredImage) &&
+    secondPageMain.data.featuredImage) ||
+    findFirstImage(secondPageMain.data.slices);
+  const excerpt = getExcerpt(secondPageMain.data.slices);
+console.log("featuredImage", featuredImage);
+
   return (
-    <div className="flex flex-col md:flex-row">
-      <div className="h-full w-full md:w-auto">
-        <PrismicNextLink>
-          <div className="aspect-h-3 aspect-w-4 h-[500px]   w-[500px] bg-gray-100  md:max-w-md">
-            {prismic.isFilled.image(featuredImage) && (
-              <PrismicNextImage
-                field={featuredImage}
-                fill={true}
-                className="object-cover"
-              />
-            )}
-          </div>
-        </PrismicNextLink>
-      </div>
-  
-      <div className="ml-0 md:ml-6 flex flex-col mt-4 md:mt-0 flex-1   pt-20">
+    <div className="flex flex-col md:flex-row px-8 py-8">
+            <div className="ml-0 md:ml-6 mr-4 md:mr-8 flex flex-col mt-4 md:mt-0 pt-20 max-w-md">
         <h2 style={{ 
           fontWeight: 'bold', 
           color: 'black', 
           fontSize: 'clamp(1.5em, 3vw, 1.8em)', 
           lineHeight: '1.2', 
           margin: '0 0 0.5em 0' 
-        }}>{publicity.data.meta_title}</h2>
+        }}>{secondPageMain.data.title}</h2>
         {excerpt && (
           <p className="font-serif leading-relaxed text-base md:text-lg md:leading-relaxed mb-0">
             {excerpt}
@@ -54,6 +42,21 @@ export function Article({ publicity }) {
         }}>find out more</button>
       </div>
       
+      <div className="h-full w-full md:w-auto">
+      <PrismicNextLink>
+          <div className="aspect-h-3 aspect-w-4 h-[500px]   w-[500px] bg-gray-100  md:max-w-md">
+            {prismic.isFilled.image(featuredImage) && (
+              <PrismicNextImage
+                field={featuredImage}
+                fill={true}
+                className="object-cover"
+              />
+            )}
+          </div>
+          </PrismicNextLink>
+      </div>
+  
+
     </div>
  
   );

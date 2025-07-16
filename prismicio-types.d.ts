@@ -396,6 +396,163 @@ export type PublicityDocument<Lang extends string = string> =
     Lang
   >;
 
+type RichtextDocumentDataSlicesSlice = CallToActionSlice;
+
+/**
+ * Content for richtext documents
+ */
+interface RichtextDocumentData {
+  /**
+   * Title field in *richtext*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: richtext
+   * - **API ID Path**: richtext.richtext
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  richtext: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *richtext*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: richtext.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<RichtextDocumentDataSlicesSlice> /**
+   * Meta Title field in *richtext*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: richtext.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *richtext*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: richtext.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *richtext*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: richtext.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * richtext document from Prismic
+ *
+ * - **API ID**: `richtext`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RichtextDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<RichtextDocumentData>,
+    "richtext",
+    Lang
+  >;
+
+type SecondPageDocumentDataSlicesSlice =
+  | QuoteSlice
+  | ImageSlice
+  | TextSlice
+  | ContactFormSlice
+  | CallToActionSlice;
+
+/**
+ * Content for secondPage documents
+ */
+interface SecondPageDocumentData {
+  /**
+   * Title field in *secondPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: title
+   * - **API ID Path**: secondPage.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *secondPage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: secondPage.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<SecondPageDocumentDataSlicesSlice> /**
+   * Meta Title field in *secondPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: secondPage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *secondPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: secondPage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *secondPage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: secondPage.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * secondPage document from Prismic
+ *
+ * - **API ID**: `secondPage`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SecondPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SecondPageDocumentData>,
+    "secondPage",
+    Lang
+  >;
+
 /**
  * Content for Settings documents
  */
@@ -488,6 +645,8 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | PublicityDocument
+  | RichtextDocument
+  | SecondPageDocument
   | SettingsDocument;
 
 /**
@@ -884,6 +1043,12 @@ declare module "@prismicio/client" {
       PublicityDocument,
       PublicityDocumentData,
       PublicityDocumentDataSlicesSlice,
+      RichtextDocument,
+      RichtextDocumentData,
+      RichtextDocumentDataSlicesSlice,
+      SecondPageDocument,
+      SecondPageDocumentData,
+      SecondPageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,

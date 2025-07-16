@@ -89,7 +89,10 @@ export function Layout({
         settings={settings}
       />
       <main>{children}</main>
-      <Footer withSignUpForm={withSignUpForm} settings={settings} />
+<div style={{ backgroundColor: 'orange', padding: '1rem' }}>
+
+  <Footer  navigations={navigation} />
+</div>
     </div>
   );
 }
