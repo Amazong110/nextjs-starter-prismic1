@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     >
       <body className="overflow-x-hidden antialiased">
         <main>
-          {process.env.NODE_ENV === "development" && (
+        
             <div
               style={{
                 background: "#04D99D",
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
             }}>Book A Free Assessment</button>
           </div>
             </div>
-          )}
+     
           {children}
           <PrismicPreview repositoryName={repositoryName} />
         </main>

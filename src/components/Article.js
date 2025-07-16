@@ -18,7 +18,7 @@ export function Article({ publicity }) {
     <div className="flex flex-col md:flex-row">
       <div className="h-full w-full md:w-auto">
         <PrismicNextLink>
-          <div className="aspect-h-3 aspect-w-4 h-[500px]   w-[500px] bg-gray-100  md:max-w-md">
+          <div className="aspect-h-3 aspect-w-4 h-[500px] w-[500px] bg-gray-100">
             {prismic.isFilled.image(featuredImage) && (
               <PrismicNextImage
                 field={featuredImage}
@@ -30,7 +30,7 @@ export function Article({ publicity }) {
         </PrismicNextLink>
       </div>
   
-      <div className="ml-0 md:ml-6 flex flex-col mt-4 md:mt-0 flex-1   pt-20">
+      <div className="ml-0 md:ml-6 flex flex-col mt-4 md:mt-0 flex-1 pt-20 md:items-start items-center">
         <h2 style={{ 
           fontWeight: 'bold', 
           color: 'black', 

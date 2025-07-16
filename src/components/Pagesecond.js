@@ -18,7 +18,7 @@ console.log("featuredImage", featuredImage);
 
   return (
     <div className="flex flex-col md:flex-row px-8 py-8">
-            <div className="ml-0 md:ml-6 mr-4 md:mr-8 flex flex-col mt-4 md:mt-0 pt-20 max-w-md">
+            <div className="ml-0 md:ml-6 mr-4 md:mr-8 flex flex-col order-1 md:order-0 md:mt-0 md:items-start items-center py-4">
         <h2 style={{ 
           fontWeight: 'bold', 
           color: 'black', 
@@ -27,7 +27,7 @@ console.log("featuredImage", featuredImage);
           margin: '0 0 0.5em 0' 
         }}>{secondPageMain.data.title}</h2>
         {excerpt && (
-          <p className="font-serif leading-relaxed text-base md:text-lg md:leading-relaxed mb-0">
+          <p className="font-serif leading-relaxed text-base md:text-lg   md:order-0  md:mt-0 md:items-start items-center text-center md:text-left">
             {excerpt}
           </p>
         )}
@@ -44,7 +44,7 @@ console.log("featuredImage", featuredImage);
       
       <div className="h-full w-full md:w-auto">
       <PrismicNextLink>
-          <div className="aspect-h-3 aspect-w-4 h-[500px]   w-[500px] bg-gray-100  md:max-w-md">
+          <div className="aspect-h-3 aspect-w-4 h-[500px] w-[500px] bg-gray-100 ">
             {prismic.isFilled.image(featuredImage) && (
               <PrismicNextImage
                 field={featuredImage}

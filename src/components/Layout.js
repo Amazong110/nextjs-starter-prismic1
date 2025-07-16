@@ -20,9 +20,9 @@ export function Layout({
   const profilePicture = settings?.data?.profilePicture;
   return (
     <div className="text-slate-700">
-          <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '1rem',padding: "1rem", }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '1rem', padding: "1rem", }}>
           <nav>
-          <ul className="flex flex-wrap justify-end gap-10"> {/* 将 justify-center 修改为 justify-end 以对齐最右端 */}
+          <ul className="flex flex-wrap justify-end gap-10 md:justify-center"> {/* 移动端居中，桌面端右对齐 */}
             <NavItem>
               <Link href="/">
                 <PrismicText field={navigation.data.homepageLabel} />

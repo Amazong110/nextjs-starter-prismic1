@@ -29,7 +29,7 @@ export function ThreeColumnArticles({ articles }) {
                 )}
               </div>
             </PrismicNextLink>
-            <div className="p-4">
+            <div className="p-4  text-center md:text-left" >
             {/* 标题 */}
             <h3 className="mb-2 text-xl font-semibold text-slate-800">
               <PrismicText field={article.data.title} />
