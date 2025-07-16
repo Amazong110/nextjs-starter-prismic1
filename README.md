@@ -1,4 +1,4 @@
-# Prismic + Next.js Blog Starter
+# Prismic + Next.js Starter
 
 npx degit prismicio-community/nextjs-starter-prismic-blog your-project-name
 cd your-project-name
